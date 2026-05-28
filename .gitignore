@@ -1,0 +1,4 @@
+# Ignore local dependencies and secrets
+node_modules/
+*.env
+backend/node_modules/

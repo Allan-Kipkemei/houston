@@ -1,0 +1,9 @@
+Pick your cool domain and replace this placeholder.
+Examples:
+- gatsby.studio
+- gatsby.design
+- gatsby.dev
+- gatsby.rocks
+- gatsby.site
+
+If you use GitHub Pages, put your actual custom domain here in a file named CNAME instead of this placeholder.
