@@ -6,7 +6,8 @@
 <title>Gatsby — Website & Application Development | Houston, TX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -851,6 +852,11 @@
     transform: translateY(24px);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
+  .reveal.reveal-now {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
   /* ── MOBILE NAV DRAWER ── */
@@ -1000,7 +1006,7 @@
 <!-- SERVICES -->
 <section id="services">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header reveal reveal-now">
       <span class="tag">What We Do</span>
       <h2 class="section-title">Everything your business<br>needs to <em>show up online</em></h2>
       <p class="section-sub">From a simple one-page site to a full multi-page business presence — we handle the design, writing, and launch.</p>
@@ -1061,13 +1067,13 @@
 <!-- WORK -->
 <section id="work">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header reveal reveal-now">
       <span class="tag">Our Portfolio</span>
       <h2 class="section-title">Recent <em>projects</em></h2>
       <p class="section-sub">A selection of recent websites and brand experiences built to help customers discover, trust, and contact each business.</p>
     </div>
 
-    <div class="work-grid work-row-2 reveal">
+    <div class="work-grid work-row-2 reveal reveal-now">
       <a href="https://karibucoffees.com/" class="work-card" target="_blank" rel="noopener">
         <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">karibucoffees.com</span></div></div>
         <div class="site-preview">
@@ -1323,7 +1329,7 @@
       </a>
     </div>
 
-    <div class="work-grid work-row-3 reveal">
+    <div class="work-grid work-row-3 reveal reveal-now">
       <a href="#contact" class="work-card">
         <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">www.lonestarroofingco.com</span></div></div>
         <div class="work-thumb thumb-plumbing">
@@ -1699,7 +1705,7 @@ drawerClose.addEventListener('click', () => drawer.classList.remove('open'));
 drawerLinks.forEach(l => l.addEventListener('click', () => drawer.classList.remove('open')));
 
 // ── SCROLL REVEAL ──
-const reveals = document.querySelectorAll('.reveal');
+const reveals = document.querySelectorAll('.reveal:not(.reveal-now)');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((e, i) => {
     if (e.isIntersecting) {
