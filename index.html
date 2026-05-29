@@ -335,8 +335,8 @@
   /* ── WORK / PORTFOLIO ── */
   #work { padding: 8rem 0; background: var(--warm-white); }
   .work-grid { display: grid; gap: 2rem; }
-  .work-row-2 { grid-template-columns: repeat(3, 1fr); }
-  .work-row-3 { grid-template-columns: repeat(3, 1fr); margin-top: 2rem; }
+  .work-row-2, .work-row-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .work-row-3 { margin-top: 2rem; }
   .work-card {
     border-radius: 10px;
     overflow: hidden;
@@ -353,21 +353,72 @@
     overflow: hidden;
     background: var(--stone);
   }
-  .site-preview iframe {
-    width: 500%;
-    height: 500%;
-    border: 0;
-    transform: scale(0.2);
-    transform-origin: 0 0;
-    pointer-events: none;
-    background: var(--warm-white);
-  }
   .site-preview::after {
     content: "";
     position: absolute;
     inset: 0;
     box-shadow: inset 0 0 0 1px rgba(30,26,22,0.05);
   }
+  .site-shot {
+    height: 100%;
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    font-family: var(--font-body);
+    color: var(--ink);
+  }
+  .shot-nav { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; font-size: 0.48rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .shot-logo { font-family: var(--font-display); font-size: 0.95rem; letter-spacing: 0; text-transform: none; line-height: 1; }
+  .shot-links { display: flex; gap: 0.4rem; opacity: 0.8; }
+  .shot-hero { flex: 1; display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(70px, 0.9fr); gap: 0.75rem; align-items: center; }
+  .shot-kicker { font-family: var(--font-mono); font-size: 0.48rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.25rem; opacity: 0.75; }
+  .shot-title { font-family: var(--font-display); font-size: 1.35rem; line-height: 0.95; max-width: 8.5em; }
+  .shot-copy { font-size: 0.52rem; line-height: 1.35; margin-top: 0.35rem; max-width: 17em; opacity: 0.78; }
+  .shot-cta { display: inline-flex; align-items: center; width: fit-content; margin-top: 0.55rem; padding: 0.28rem 0.55rem; border-radius: 3px; font-size: 0.5rem; font-weight: 700; }
+  .shot-visual { min-height: 92px; border-radius: 6px; overflow: hidden; position: relative; }
+  .shot-panels { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.35rem; height: 100%; }
+  .shot-panel { border-radius: 5px; min-height: 40px; }
+  .shot-list { display: grid; gap: 0.28rem; }
+  .shot-line { height: 0.36rem; border-radius: 999px; opacity: 0.75; }
+  .shot-cardlet { border-radius: 5px; padding: 0.45rem; font-size: 0.48rem; font-weight: 700; }
+  .shot-coffee { background: #f8ead4; color: #4f2b19; }
+  .shot-coffee .shot-visual { background: radial-gradient(circle at 70% 38%, #f7d49b 0 18%, transparent 19%), linear-gradient(135deg,#6b3a20,#b97845); }
+  .shot-coffee .shot-cta { background: #4f2b19; color: #fff8ee; }
+  .shot-safari { background: #fff6e7; color: #23170f; }
+  .shot-safari .shot-visual { background: linear-gradient(145deg,#1f170f 0 48%,#c05d24 49% 100%); }
+  .shot-safari .shot-cta { background: #c05d24; color: #fff; }
+  .shot-africa { background: #eef5ff; color: #14335c; }
+  .shot-africa .shot-panel { background: #d5e4fa; border: 1px solid #b9cdec; }
+  .shot-africa .shot-cta { background: #184b8a; color: #fff; }
+  .shot-supercuts { background: #fff; color: #171717; }
+  .shot-supercuts .shot-logo { color: #d72027; font-family: var(--font-body); font-weight: 800; }
+  .shot-supercuts .shot-visual { background: linear-gradient(90deg,#ececec 0 48%,#d72027 49% 100%); }
+  .shot-supercuts .shot-cta { background: #d72027; color: #fff; }
+  .shot-cutshave { background: #f1eee8; color: #1f1b18; }
+  .shot-cutshave .shot-visual { background: linear-gradient(135deg,#151515,#5d5048); }
+  .shot-cutshave .shot-cta { background: #1f1b18; color: #fff; }
+  .shot-fadehaus { background: #111; color: #f7f7f7; }
+  .shot-fadehaus .shot-visual { background: linear-gradient(135deg,#2a2a2a,#777); }
+  .shot-fadehaus .shot-cta { background: #f7f7f7; color: #111; }
+  .shot-tuneup { background: #f6f1e3; color: #1d1d1b; }
+  .shot-tuneup .shot-visual { background: linear-gradient(135deg,#1d1d1b 0 58%,#c8a253 59%); }
+  .shot-tuneup .shot-cta { background: #1d1d1b; color: #f6f1e3; }
+  .shot-boudin { background: #fff7e8; color: #2b1510; }
+  .shot-boudin .shot-visual { background: radial-gradient(circle at 48% 48%,#f6b13c 0 24%,transparent 25%), linear-gradient(135deg,#cc2f22,#571710); }
+  .shot-boudin .shot-cta { background: #cc2f22; color: #fff; }
+  .shot-auto { background: #f3f7fb; color: #182f4a; }
+  .shot-auto .shot-visual { background: linear-gradient(135deg,#1d4f86,#e1e8f0); }
+  .shot-auto .shot-cta { background: #1d4f86; color: #fff; }
+  .shot-bluewave { background: #eaf7ff; color: #083f78; }
+  .shot-bluewave .shot-visual { background: radial-gradient(circle at 55% 50%,#fff 0 16%,transparent 17%), linear-gradient(135deg,#0a8bdc,#0e4f9a); }
+  .shot-bluewave .shot-cta { background: #0e66b3; color: #fff; }
+  .shot-gems { background: #fbf6ef; color: #302725; }
+  .shot-gems .shot-visual { background: radial-gradient(circle at 50% 38%,#f0d8a3 0 20%,transparent 21%), linear-gradient(135deg,#f8ead7,#8a6e5a); }
+  .shot-gems .shot-cta { background: #302725; color: #fff; }
+  .shot-forge { background: #eee9e1; color: #241b16; }
+  .shot-forge .shot-visual { background: linear-gradient(135deg,#241b16 0 58%,#bc5a2b 59%); }
+  .shot-forge .shot-cta { background: #bc5a2b; color: #fff; }
   .work-thumb {
     aspect-ratio: 16/10;
     position: relative;
@@ -408,7 +459,7 @@
     align-items: center;
     padding: 0 8px;
   }
-  .chrome-url { font-family: var(--font-mono); font-size: 10px; color: var(--brown); }
+  .chrome-url { font-family: var(--font-mono); font-size: 10px; color: var(--brown); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   /* thumb palettes */
   .thumb-bakery { background: linear-gradient(135deg, #F5E6D3 0%, #FAEBD7 100%); }
@@ -849,6 +900,13 @@
   }
   @media (max-width: 600px) {
     .services-grid { grid-template-columns: 1fr; }
+    .work-grid { gap: 1.25rem; }
+    .site-preview { aspect-ratio: 4/3; }
+    .site-shot { padding: 0.7rem; }
+    .shot-hero { grid-template-columns: 1fr; gap: 0.55rem; align-content: start; }
+    .shot-title { font-size: 1.2rem; }
+    .shot-visual { min-height: 58px; max-height: 76px; }
+    .work-meta { padding: 1rem 1.1rem 1.15rem; }
     .hero-stats { max-width: 100%; }
     .stat { padding: 1rem 1.25rem; }
     .stat-num { font-size: 1.75rem; }
@@ -1006,19 +1064,18 @@
     <div class="section-header reveal">
       <span class="tag">Our Portfolio</span>
       <h2 class="section-title">Recent <em>projects</em></h2>
-      <p class="section-sub">Every client had no website. Now they have a professional online presence that works for them 24/7.</p>
+      <p class="section-sub">A selection of recent websites and brand experiences built to help customers discover, trust, and contact each business.</p>
     </div>
 
     <div class="work-grid work-row-2 reveal">
       <a href="https://karibucoffees.com/" class="work-card" target="_blank" rel="noopener">
         <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">karibucoffees.com</span></div></div>
-        <div class="work-thumb thumb-coffee">
-          <div class="work-thumb-inner" style="flex-direction:column; gap:0.5rem; padding:2rem;">
-            <div style="font-family:'DM Serif Display',serif; font-size:2rem; color:#5A321E;">Karibu Coffees</div>
-            <div style="font-size:0.78rem; color:#8A5A36; font-family:'DM Mono',monospace; letter-spacing:0.1em; text-transform:uppercase;">Cafe &middot; Pantego, TX</div>
-            <div style="margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center;">
-              <div style="background:#5A321E; color:#FFF8EE; padding:0.4rem 1rem; border-radius:3px; font-size:0.75rem; font-weight:500;">Explore Menu</div>
-              <div style="border:1px solid #8A5A36; color:#5A321E; padding:0.4rem 1rem; border-radius:3px; font-size:0.75rem; font-weight:500;">Book Us</div>
+        <div class="site-preview">
+          <div class="site-shot shot-coffee">
+            <div class="shot-nav"><div class="shot-logo">Karibu Coffees</div><div class="shot-links"><span>Menu</span><span>Book</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Cafe & events</div><div class="shot-title">Coffee, bites, and community.</div><div class="shot-copy">Fresh drinks, cafe menu, bookings, and local gatherings in Pantego.</div><span class="shot-cta">Explore Menu</span></div>
+              <div class="shot-visual"></div>
             </div>
           </div>
         </div>
@@ -1026,7 +1083,205 @@
           <div class="work-category">Cafe &middot; Business Website</div>
           <div class="work-title">Karibu Coffees Cafe &mdash; Pantego</div>
           <div class="work-desc">A warm cafe website with menu discovery, booking links, event information, location details, and customer contact options.</div>
-          <span class="work-arrow">View project â†’</span>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://thesafarirestaurant.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">thesafarirestaurant.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-safari">
+            <div class="shot-nav"><div class="shot-logo">Safari Restaurant</div><div class="shot-links"><span>Menu</span><span>Hours</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Established since 1994</div><div class="shot-title">Authentic Nigerian cooking.</div><div class="shot-copy">Houston's long-running Nigerian restaurant with catering and hall rentals.</div><span class="shot-cta">Call Us</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Restaurant &middot; Business Website</div>
+          <div class="work-title">Safari Restaurant</div>
+          <div class="work-desc">Authentic Nigerian restaurant website with menu details, catering information, hall rental messaging, location, and hours.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://africactn.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">africactn.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-africa">
+            <div class="shot-nav"><div class="shot-logo">AfricaCTN</div><div class="shot-links"><span>Documents</span><span>Countries</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Global support</div><div class="shot-title">Official cargo tracking notes.</div><div class="shot-copy">Fast CTN and ECTN application support for African ports.</div><span class="shot-cta">Start CTN</span></div>
+              <div class="shot-panels"><div class="shot-panel"></div><div class="shot-panel"></div><div class="shot-panel"></div><div class="shot-panel"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Logistics &middot; Business Website</div>
+          <div class="work-title">AfricaCTN</div>
+          <div class="work-desc">Official cargo tracking note site with country requirements, application pathways, support resources, and compliance information.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://www.supercuts.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">supercuts.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-supercuts">
+            <div class="shot-nav"><div class="shot-logo">SUPERCUTS</div><div class="shot-links"><span>Services</span><span>Locations</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Haircuts made easy</div><div class="shot-title">Fresh cuts, fast booking.</div><div class="shot-copy">Salon services, store finder, offers, and appointment pathways.</div><span class="shot-cta">Find a Salon</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Salon &middot; Brand Website</div>
+          <div class="work-title">Supercuts</div>
+          <div class="work-desc">National salon website experience focused on services, location discovery, offers, and appointment pathways.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://cutandshavebarber.shop/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">cutandshavebarber.shop</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-cutshave">
+            <div class="shot-nav"><div class="shot-logo">Cut & Shave</div><div class="shot-links"><span>Services</span><span>Hours</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Fort Bend premier</div><div class="shot-title">Classic barbershop appointments.</div><div class="shot-copy">Location, service pricing, shop photos, and appointment messaging.</div><span class="shot-cta">Call Now</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Barbershop &middot; Business Website</div>
+          <div class="work-title">The Cut and Shave Barbershop</div>
+          <div class="work-desc">Classic Fort Bend barbershop website with service pricing, location details, appointment messaging, and shop story.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://www.fadehaustx.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">fadehaustx.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-fadehaus">
+            <div class="shot-nav"><div class="shot-logo">Fade Haus</div><div class="shot-links"><span>Book</span><span>Team</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Rosenberg, TX</div><div class="shot-title">Transform your style.</div><div class="shot-copy">Fresh cuts, trendy fades, team profiles, hours, and booking.</div><span class="shot-cta">Book Appointment</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Barbershop &middot; Booking Website</div>
+          <div class="work-title">Fade Haus</div>
+          <div class="work-desc">Modern Rosenberg barbershop site with booking, team profiles, hours, location, and strong visual brand presentation.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://tuneupsalon.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">tuneupsalon.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-tuneup">
+            <div class="shot-nav"><div class="shot-logo">Tune Up</div><div class="shot-links"><span>Services</span><span>Locations</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Salon & grooming</div><div class="shot-title">Cuts, shaves, and tune-ups.</div><div class="shot-copy">Service discovery, booking paths, and location-focused customer flow.</div><span class="shot-cta">Book Now</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Salon &middot; Business Website</div>
+          <div class="work-title">Tune Up Salon</div>
+          <div class="work-desc">Salon and grooming brand website with services, location-oriented discovery, booking, and franchise-style customer pathways.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://theboudincompany.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">theboudincompany.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-boudin">
+            <div class="shot-nav"><div class="shot-logo">The Boudin Company</div><div class="shot-links"><span>Menu</span><span>Order</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">New & limited time</div><div class="shot-title">Fire up the flavor.</div><div class="shot-copy">Cajun and Creole menu, ordering, catering, rewards, and location content.</div><span class="shot-cta">Order Now</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Restaurant &middot; Ordering Website</div>
+          <div class="work-title">The Boudin Company</div>
+          <div class="work-desc">Cajun and Creole restaurant site with menu categories, online ordering, catering details, rewards, and local SEO content.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://autocareus.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">autocareus.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-auto">
+            <div class="shot-nav"><div class="shot-logo">Auto Care USA</div><div class="shot-links"><span>Services</span><span>Locations</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">2 year warranty</div><div class="shot-title">Complete auto care you can trust.</div><div class="shot-copy">ASE-certified repair, location pages, consultations, and warranty messaging.</div><span class="shot-cta">Get Consultation</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Auto Repair &middot; Business Website</div>
+          <div class="work-title">Auto Care USA</div>
+          <div class="work-desc">Automotive repair website highlighting service trust, warranty messaging, locations, consultations, and customer education.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://bluewaveexpress.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">bluewaveexpress.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-bluewave">
+            <div class="shot-nav"><div class="shot-logo">BlueWave Express</div><div class="shot-links"><span>Locations</span><span>Wash Menu</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Friendly. Fast. Fun.</div><div class="shot-title">Car washing quality you can trust.</div><div class="shot-copy">Memberships, wash options, multi-location navigation, and customer links.</div><span class="shot-cta">Go Unlimited</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Car Wash &middot; Multi-Location Website</div>
+          <div class="work-title">BlueWave Express</div>
+          <div class="work-desc">Express car wash website with membership promotion, location navigation, wash menu content, and customer service links.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://southtejasgems.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">southtejasgems.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-gems">
+            <div class="shot-nav"><div class="shot-logo">South Tejas Gems</div><div class="shot-links"><span>Shop</span><span>Contact</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Gems & jewelry</div><div class="shot-title">Polished pieces with local character.</div><div class="shot-copy">Product-forward landing page with brand story and customer interest paths.</div><span class="shot-cta">Browse Gems</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Jewelry &middot; Brand Website</div>
+          <div class="work-title">South Tejas Gems</div>
+          <div class="work-desc">Gem and jewelry-focused website built to present products, brand identity, customer interest, and polished visual browsing.</div>
+          <span class="work-arrow">View project &rarr;</span>
+        </div>
+      </a>
+      <a href="https://fortbendforge.com/" class="work-card" target="_blank" rel="noopener">
+        <div class="browser-chrome"><span class="chrome-dot red"></span><span class="chrome-dot yellow"></span><span class="chrome-dot green"></span><div class="chrome-bar"><span class="chrome-url">fortbendforge.com</span></div></div>
+        <div class="site-preview">
+          <div class="site-shot shot-forge">
+            <div class="shot-nav"><div class="shot-logo">Fort Bend Forge</div><div class="shot-links"><span>Work</span><span>Quote</span></div></div>
+            <div class="shot-hero">
+              <div><div class="shot-kicker">Forge & fabrication</div><div class="shot-title">Built strong in Fort Bend.</div><div class="shot-copy">Craftsmanship, service presentation, local identity, and inquiry flow.</div><span class="shot-cta">Request Quote</span></div>
+              <div class="shot-visual"></div>
+            </div>
+          </div>
+        </div>
+        <div class="work-meta">
+          <div class="work-category">Metalwork &middot; Business Website</div>
+          <div class="work-title">Fort Bend Forge</div>
+          <div class="work-desc">Forge and fabrication website designed to showcase craftsmanship, services, local brand presence, and inquiry paths.</div>
+          <span class="work-arrow">View project &rarr;</span>
         </div>
       </a>
       <a href="#contact" class="work-card">
